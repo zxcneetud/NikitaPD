@@ -1,0 +1,37 @@
+def main():
+    kopsumma = 0
+    while True:
+        cena = input("Ievadi cenu: ")
+        
+        if cena == "" or cena == "0":
+            break
+        
+        try:
+            cena = float(cena)
+            if cena < 0:
+                print("Kļūda: Cena nevar būt negatīva.")
+                continue
+        except ValueError:
+            print("Kļūda: Lūdzu ievadi derīgu cenu.")
+            continue
+        
+        daudzums = input("Ievadi daudzumu: ")
+        
+        try:
+            daudzums = int(daudzums)
+            if daudzums < 0:
+                print("Kļūda: Daudzumam jābūt pozitīvam skaitlim.")
+                continue
+        except ValueError:
+            print("Kļūda: Lūdzu ievadi derīgu daudzumu.")
+            continue
+        
+        preces_summa = cena * daudzums
+        kopsumma += preces_summa
+        
+        print(f"Preču kopējā summa: {preces_summa:.2f} €")
+    
+    print(f"Kopsumma: {kopsumma:.2f} €")
+
+if __name__ == "__main__":
+    main()
